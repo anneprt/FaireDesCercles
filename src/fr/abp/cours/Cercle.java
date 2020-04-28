@@ -8,6 +8,42 @@ public class Cercle {
     public int x;
     public int y;
     public int r;
+    public final static int TAILLE_ECRAN = 600;
+
+    public Cercle() {
+        Scanner lectureClavier = new Scanner(System.in);
+        System.out.print("Position en x :  ");
+        x = lectureClavier.nextInt();
+        System.out.print("Position en y :  ");
+        y = lectureClavier.nextInt();
+        r = rayonVérifié();
+    }
+
+    public Cercle(int centrex, int centrey) {
+        x = centrex;
+        y = centrey;
+    }
+
+    public Cercle(int centrex, int centrey, int rayon) {
+        this(centrex, centrey);
+        r = rayonVérifié(rayon);
+    }
+
+    private int rayonVérifié() {
+        int tmp;
+        do {
+            System.out.print("Rayon            :  ");
+            Scanner lectureClavier = new Scanner(System.in);
+            tmp = lectureClavier.nextInt();
+        } while (tmp < 0 || tmp > TAILLE_ECRAN);
+        return tmp;
+    }
+
+    private int rayonVérifié(int tmp) {
+        if (tmp < 0) return 0;
+        else if (tmp > TAILLE_ECRAN) return TAILLE_ECRAN;
+        else return tmp;
+    }
 
     public void echanger(Cercle autre) {
         int tmp;

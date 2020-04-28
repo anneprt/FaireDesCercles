@@ -6,6 +6,7 @@ public class CercleControle {
     int x;
     int y;
     int r;
+    public final static int TAILLE_ECRAN = 600;
 
     public void créer() {
         Scanner lectureClavier = new Scanner(System.in);
@@ -16,7 +17,7 @@ public class CercleControle {
         do {
             System.out.print("Rayon         :  ");
             r = lectureClavier.nextInt();
-        } while (r < 0 || r > 600);
+        } while (r < 0 || r > TAILLE_ECRAN);
     }
 
     public void afficher() {
@@ -26,7 +27,7 @@ public class CercleControle {
 
     public void agrandir(int nr) {
         if (r + nr < 0) r = 0;
-        else if (r + nr > 600) r = 600;
+        else if (r + nr > TAILLE_ECRAN) r = TAILLE_ECRAN;
         else r = r + nr;
     }
 
