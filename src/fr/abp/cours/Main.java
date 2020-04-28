@@ -1,4 +1,4 @@
-import fr.abp.cours.Cercle;
+package fr.abp.cours;
 
 import java.util.Scanner;
 
