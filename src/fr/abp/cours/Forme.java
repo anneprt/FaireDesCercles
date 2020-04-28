@@ -1,6 +1,6 @@
 package fr.abp.cours;
 
-public class Forme {
+public class Forme implements CalculGeometrique {
     protected int x;
     protected int y;
     private int couleur;
@@ -9,6 +9,14 @@ public class Forme {
         x = nx;
         y = ny;
         couleur = 0;
+    }
+
+    public double surface() {
+        return -1;
+    }
+
+    public double perimetre() {
+        return -1;
     }
 
     public void afficher() {

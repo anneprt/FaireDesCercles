@@ -3,12 +3,8 @@ package fr.abp.cours;
 import java.util.Scanner;
 
 public class Cercle extends Forme {
-
-    public static int nombre;
-    public int x;
-    public int y;
-    private int r;
     public final static int TAILLE_ECRAN = 600;
+    private int r;
 
     public Cercle(int xx, int yy) {
         super(xx, yy);
@@ -16,11 +12,16 @@ public class Cercle extends Forme {
         r = rayonVérifié();
     }
 
+    public void afficher() {
+        super.afficher();
+        System.out.println("Rayon : " + r);
+    }
+
     private int rayonVérifié() {
+        Scanner lectureClavier = new Scanner(System.in);
         int tmp;
         do {
             System.out.print("Rayon            :  ");
-            Scanner lectureClavier = new Scanner(System.in);
             tmp = lectureClavier.nextInt();
         } while (tmp < 0 || tmp > TAILLE_ECRAN);
         return tmp;
@@ -43,28 +44,12 @@ public class Cercle extends Forme {
 
     }
 
-    public void creer() {
-        Scanner lectureClavier = new Scanner(System.in);
-        System.out.println("Position en x:   ");
-        x = lectureClavier.nextInt();
-        System.out.println("Position en y:   ");
-        y = lectureClavier.nextInt();
-        System.out.println("Rayon        :   ");
-        r = lectureClavier.nextInt();
-        nombre++;
-    }
-
-    public void afficher() {
-        super.afficher();
-    }
-
     public double perimetre() {
         return 2 * Math.PI * r;
     }
 
-    public void deplacer(int nx, int ny) {
-        x = nx;
-        y = ny;
+    public double surface() {
+        return Math.PI * r * r;
     }
 
     public void agrandir(int nr) {
