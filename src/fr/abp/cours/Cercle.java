@@ -2,31 +2,18 @@ package fr.abp.cours;
 
 import java.util.Scanner;
 
-public class Cercle {
+public class Cercle extends Forme {
 
     public static int nombre;
     public int x;
     public int y;
-    public int r;
+    private int r;
     public final static int TAILLE_ECRAN = 600;
 
-    public Cercle() {
-        Scanner lectureClavier = new Scanner(System.in);
-        System.out.print("Position en x :  ");
-        x = lectureClavier.nextInt();
-        System.out.print("Position en y :  ");
-        y = lectureClavier.nextInt();
+    public Cercle(int xx, int yy) {
+        super(xx, yy);
+        System.out.print("Rayon          :  ");
         r = rayonVérifié();
-    }
-
-    public Cercle(int centrex, int centrey) {
-        x = centrex;
-        y = centrey;
-    }
-
-    public Cercle(int centrex, int centrey, int rayon) {
-        this(centrex, centrey);
-        r = rayonVérifié(rayon);
     }
 
     private int rayonVérifié() {
@@ -68,8 +55,7 @@ public class Cercle {
     }
 
     public void afficher() {
-        System.out.println("fr.abp.cours.Cercle centré en " + x + "," + y);
-        System.out.println("de rayon: " + r);
+        super.afficher();
     }
 
     public double perimetre() {
@@ -82,7 +68,7 @@ public class Cercle {
     }
 
     public void agrandir(int nr) {
-        r = r + nr;
+        r = rayonVérifié(r + nr);
     }
 }
 
